@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-10T16:50:07.915Z",
+    "end": "2023-11-10T16:50:12.347Z",
+    "duration": 4432,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d9fb51ab-3887-4cc3-97db-7aabd35776f0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\recuperer-les-elements-d’un menu.cy.js",
+      "file": "cypress\\e2e\\recuperer-les-elements-d’un menu.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "301ccb87-ad13-482b-9ab9-a3d2be0dc5ed",
+          "title": "Récupérer les éléments d’une liste qui s’affiche",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Survol et récupération des éléments",
+              "fullTitle": "Récupérer les éléments d’une liste qui s’affiche Survol et récupération des éléments",
+              "timedOut": null,
+              "duration": 4387,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Visite la page d'accueil\ncy.visit('/');\n// Utilise un sélecteur pour l'élément déclenchant la liste\ncy.get('#ui-id-2').get('#ui-id-6')\n// Déclenche l'événement de survol pour afficher la liste\n.invoke('mouseover')\n// Attends que la liste soit affichée\n.next('.ui-corner-all').find('li').each(listItem => {\n  // Logue le texte de chaque élément de la liste\n  cy.log(listItem.text());\n});",
+              "err": {},
+              "uuid": "c6e04baf-75d2-4f23-9191-ace4e76e20ef",
+              "parentUUID": "301ccb87-ad13-482b-9ab9-a3d2be0dc5ed",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c6e04baf-75d2-4f23-9191-ace4e76e20ef"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4387,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

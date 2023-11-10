@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-11-10T16:49:52.952Z",
+    "end": "2023-11-10T16:49:59.909Z",
+    "duration": 6957,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9e69b3a9-f539-4fcf-a0f4-dcfcf0e67c25",
+      "title": "",
+      "fullFile": "cypress\\e2e\\controler-lesitems-du-footer.cy.js",
+      "file": "cypress\\e2e\\controler-lesitems-du-footer.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b0272d6d-8082-456c-bb8f-e55852a8b220",
+          "title": "Tests du Footer",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Contrôler les items du footer",
+              "fullTitle": "Tests du Footer Contrôler les items du footer",
+              "timedOut": null,
+              "duration": 6862,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visite la page d'accueil\ncy.visit('/');\n// Définit une liste d'items du footer\nconst items = ['Write for us', 'Subscribe to our mailing list', 'Contact us', 'Hire a Software Testing/QA Company', 'Search Terms', 'Privacy and Cookie Policy', 'Advanced Search', 'Orders and Returns'];\n// Utilise une boucle pour itérer sur la liste des éléments\nitems.forEach(item => {\n  // Vérifie la présence de chaque item dans le footer\n  cy.get('.footer').contains(item).should('exist');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 3000ms: Expected to find content: 'Hire a Software Testing/QA Company' within the element: <ul.footer.links> but never did.",
+                "estack": "AssertionError: Timed out retrying after 3000ms: Expected to find content: 'Hire a Software Testing/QA Company' within the element: <ul.footer.links> but never did.\n    at eval (webpack://test/./cypress/e2e/controler-lesitems-du-footer.cy.js:21:41)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack://test/./cypress/e2e/controler-lesitems-du-footer.cy.js:19:12)",
+                "diff": null
+              },
+              "uuid": "756ccd5d-e2cd-497c-be2b-f5bad47a093b",
+              "parentUUID": "b0272d6d-8082-456c-bb8f-e55852a8b220",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "756ccd5d-e2cd-497c-be2b-f5bad47a093b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6862,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-10T16:55:48.750Z",
+    "end": "2023-11-10T16:55:53.094Z",
+    "duration": 4344,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3bf9413b-00dc-42cd-ad93-137c157efb9c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\controler-lesitems-du-footer.cy.js",
+      "file": "cypress\\e2e\\controler-lesitems-du-footer.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "91452f49-d489-402b-a4a6-ab4cdd09cff4",
+          "title": "Tests du Footer",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Contrôler les items du footer",
+              "fullTitle": "Tests du Footer Contrôler les items du footer",
+              "timedOut": null,
+              "duration": 4212,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Visite la page d'accueil\ncy.visit('/');\n// Définit une liste d'items du footer\nconst items = ['Write for us', 'Subscribe to our mailing list', 'Contact us', 'Hire a Sofware Testing/QA Company', 'Search Terms', 'Privacy and Cookie Policy', 'Advanced Search', 'Orders and Returns'];\n// Utilise une boucle pour itérer sur la liste des éléments\nitems.forEach(item => {\n  // Vérifie la présence de chaque item dans le footer\n  cy.get('.footer').contains(item).should('exist');\n});",
+              "err": {},
+              "uuid": "02d2163e-9e73-4ef4-aeff-e110cb8c9dd4",
+              "parentUUID": "91452f49-d489-402b-a4a6-ab4cdd09cff4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "02d2163e-9e73-4ef4-aeff-e110cb8c9dd4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4212,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
