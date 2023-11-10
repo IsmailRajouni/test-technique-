@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-11-10T16:11:34.715Z",
+    "end": "2023-11-10T16:11:50.645Z",
+    "duration": 15930,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4c1cb866-24f0-42fe-ad3c-f0b71667ce5a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\motdepasse.cy.js",
+      "file": "cypress\\e2e\\motdepasse.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Vérifie que le mot de passe est suffisamment robuste",
+          "fullTitle": "Vérifie que le mot de passe est suffisamment robuste",
+          "timedOut": null,
+          "duration": 3260,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "// Clique sur \"Create an Account\" dans la barre de navigation\ncy.get('.header').contains('Create an Account').click();\n// Vérifie que l'URL contient \"/account/create/\"\ncy.url().should('contain', '/account/create/');\n// Génère des valeurs aléatoires pour le nom, le prénom, l'e-mail et le mot de passe\nconst nom = 'user_' + Math.random().toFixed(5).split('.')[1];\nconst prenom = Math.random().toString(36).substring(2, 7);\nconst email = prenom + '.' + nom + '@yopmail.com';\nconst password = Math.random().toString(36).substring(2, 15).replace(/^\\w/, c => c.toUpperCase());\n// Remplit les champs du formulaire avec les valeurs générées\ncy.get('#firstname').type(prenom);\ncy.get('#lastname').type(nom);\ncy.get('#email_address').type(email);\ncy.get('#password').type(password);\ncy.get('#password-confirmation').type(password);\n// Soumet le formulaire en cliquant sur le bouton \"Submit\"\ncy.get('.actions-toolbar').get('.submit').click();\n// Vérifie que l'URL contient \"/account/\" après la soumission du formulaire\ncy.url().should('contain', '/account/');\n// Vérifie la présence du message de succès après la création du compte\ncy.get('.message-success').contains('Thank you for registering with Main Website Store.').should('exist');",
+          "err": {
+            "message": "AssertionError: Timed out retrying after 3000ms: Expected to find element: `.header`, but never found it.",
+            "estack": "AssertionError: Timed out retrying after 3000ms: Expected to find element: `.header`, but never found it.\n    at Context.eval (webpack://test/./cypress/e2e/motdepasse.cy.js:46:5)",
+            "diff": null
+          },
+          "uuid": "cbb50c05-8a59-45c5-86a2-e53f4dcf98bb",
+          "parentUUID": "4c1cb866-24f0-42fe-ad3c-f0b71667ce5a",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "a902a846-1e1f-4197-bd32-8e5d57d5cd25",
+          "title": "Vérifie que le mot de passe est suffisamment robuste",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Processus de création de compte",
+              "fullTitle": "Vérifie que le mot de passe est suffisamment robuste Processus de création de compte",
+              "timedOut": null,
+              "duration": 12522,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Clique sur \"Create an Account\" dans la barre de navigation\ncy.get('.header').contains('Create an Account').click();\n// Vérifie que l'URL contient \"/account/create/\"\ncy.url().should('contain', '/account/create/');\n// Définit différentes valeurs de mot de passe avec leurs niveaux de robustesse attendus\nconst passwords = [{\n  value: '1234567',\n  strength: 'Weak'\n}, {\n  value: 'Ismail11',\n  strength: 'Medium'\n}, {\n  value: 'Ismail111',\n  strength: 'Strong'\n}];\n// Pour chaque paire de mot de passe et de niveau de robustesse attendu\npasswords.forEach(password => {\n  // Efface le champ de mot de passe\n  cy.get(\"#password\").clear();\n  // Saisit la valeur du mot de passe actuel\n  cy.get('#password').type(password.value);\n  // Vérifie que l'étiquette de niveau de robustesse affiche le niveau attendu\n  cy.get('#password-strength-meter-label').contains(password.strength).should('exist');\n  // Si le niveau de robustesse est 'Weak', vérifie également le message d'erreur spécifique\n  if (password.strength === 'Weak') {\n    cy.get('#password-error').contains('Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.').should('exist');\n  }\n  // Attends 1 seconde entre chaque test\n  cy.wait(1000);\n});",
+              "err": {},
+              "uuid": "b5333688-58a4-47da-9cbd-df15f180ff7a",
+              "parentUUID": "a902a846-1e1f-4197-bd32-8e5d57d5cd25",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b5333688-58a4-47da-9cbd-df15f180ff7a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12522,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [
+        "cbb50c05-8a59-45c5-86a2-e53f4dcf98bb"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 3260,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
