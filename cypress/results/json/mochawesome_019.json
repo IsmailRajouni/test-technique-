@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-11-10T17:13:35.524Z",
+    "end": "2023-11-10T17:13:42.319Z",
+    "duration": 6795,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "282d4bbf-12d2-4e7e-a7ad-1058e3fb7818",
+      "title": "",
+      "fullFile": "cypress\\e2e\\se-deconnecter.cy.js",
+      "file": "cypress\\e2e\\se-deconnecter.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eba568f2-e781-40fe-971c-1f6870d97989",
+          "title": "se déconnecté ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "se déconnecté ",
+              "fullTitle": "se déconnecté  se déconnecté ",
+              "timedOut": null,
+              "duration": 6715,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Ouvre le site web\ncy.visit('/');\ncy.get('.page-wrapper .customer-welcome .action').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 3000ms: Expected to find element: `.page-wrapper .customer-welcome .action`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 3000ms: Expected to find element: `.page-wrapper .customer-welcome .action`, but never found it.\n    at Context.eval (webpack://test/./cypress/e2e/se-deconnecter.cy.js:7:9)",
+                "diff": null
+              },
+              "uuid": "2c611bc3-fc0a-4c76-83af-915e171a7dd1",
+              "parentUUID": "eba568f2-e781-40fe-971c-1f6870d97989",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2c611bc3-fc0a-4c76-83af-915e171a7dd1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6715,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

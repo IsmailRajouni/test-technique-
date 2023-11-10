@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-11-10T17:12:18.800Z",
+    "end": "2023-11-10T17:13:13.902Z",
+    "duration": 55102,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c540500f-29a5-498e-b4b3-a52b64c51605",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ajouter-un-article-au-panier-et-passe-commande.cy.js",
+      "file": "cypress\\e2e\\ajouter-un-article-au-panier-et-passe-commande.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "90dcd9a1-f56a-4034-996f-910486a01171",
+          "title": "Achat d'un produit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ajouter un article au panier et passer commande",
+              "fullTitle": "Achat d'un produit Ajouter un article au panier et passer commande",
+              "timedOut": null,
+              "duration": 54936,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visite la page d'accueil\ncy.visit('/');\n// Clique sur le deuxième produit dans la liste de produits\ncy.get('.product-items > :nth-child(2)').click();\n// Sélectionne la taille et la couleur du produit\ncy.get('#option-label-size-143-item-166').click();\ncy.get('#option-label-color-93-item-59').click();\n// Ajoute le produit au panier\ncy.get('#product-addtocart-button').click();\n// Vérifie que le panier affiche un article et clique sur le panier\ncy.get('.showcart > .counter').contains('1').should('exist');\ncy.get('.showcart').click();\n// Attends 2 secondes et ferme le mini-panier\ncy.wait(2000);\ncy.get('[data-bind*=\"click: closeMinicart\"]').click();\n// Attend 20 secondes et vérifie que l'URL correspond à la page de livraison\ncy.wait(20000);\ncy.url().should('include', 'https://magento.softwaretestingboard.com/checkout/#shipping');\n// Clique sur le bouton d'authentification\ncy.get('.authentication-wrapper > .action').click();\n// Remplit les informations d'identification\ncy.get('#login-email').type('rajouniismail3@gmail.com');\ncy.get('#login-password').type('Ismail111');\ncy.get('.block-content > form > .actions-toolbar > .primary > .action').click();\n// Attend 10 secondes et vérifie que l'URL correspond toujours à la page de livraison\ncy.wait(10000);\ncy.url().should('include', 'https://magento.softwaretestingboard.com/checkout/#shipping');\n// Remplit les informations d'adresse de livraison\ncy.get('input[name=\"street[0]\"]').type('testtestestestetsetsetste');\ncy.get('input[name=\"city\"]').type('California');\ncy.get('input[name=\"shippingAddress.region_id\"]').eq(2).click();\ncy.get('input[name=\"postcode\"]').type('20220');\ncy.get('input[name=\"telephone\"]').type('0625444555');\n// Coche la case des conditions générales de vente\ncy.get('#ko_unique_2').check();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 3000ms: Expected to find element: `input[name=\"shippingAddress.region_id\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 3000ms: Expected to find element: `input[name=\"shippingAddress.region_id\"]`, but never found it.\n    at Context.eval (webpack://test/./cypress/e2e/ajouter-un-article-au-panier-et-passe-commande.cy.js:43:9)",
+                "diff": null
+              },
+              "uuid": "7c5918bc-2373-452d-bd4b-c89724570b16",
+              "parentUUID": "90dcd9a1-f56a-4034-996f-910486a01171",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "7c5918bc-2373-452d-bd4b-c89724570b16"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 54936,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
