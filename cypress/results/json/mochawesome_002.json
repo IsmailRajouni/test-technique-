@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-10T16:08:01.297Z",
+    "end": "2023-11-10T16:08:33.997Z",
+    "duration": 32700,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4258bc64-aa55-4b00-8abe-02a356a00109",
+      "title": "",
+      "fullFile": "cypress\\e2e\\motdepasse.cy.js",
+      "file": "cypress\\e2e\\motdepasse.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Vérifie que le mot de passe est suffisamment robuste",
+          "fullTitle": "Vérifie que le mot de passe est suffisamment robuste",
+          "timedOut": null,
+          "duration": 19446,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('/');\ncy.get('.header').contains('Create an Account').click();\ncy.url().should('contain', '/account/create/');\nconst nom = 'user_' + Math.random().toFixed(5).split('.')[1];\nconst prenom = Math.random().toString(36).substring(2, 7);\nconst email = prenom + '.' + nom + '@yopmail.com';\nconst password = Math.random().toString(36).substring(2, 15).replace(/^\\w/, c => c.toUpperCase());\ncy.get('#firstname').type(prenom);\ncy.get('#lastname').type(nom);\ncy.get('#email_address').type(email);\ncy.get('#password').type(password);\ncy.get('#password-confirmation').type(password);\ncy.get('.actions-toolbar').get('.submit').click();\ncy.url().should('contain', '/account/');\ncy.get('.message-success').contains('Thank you for registering with Main Website Store.').should('exist');",
+          "err": {},
+          "uuid": "76a3169a-0d93-4983-8f36-9d846508a640",
+          "parentUUID": "4258bc64-aa55-4b00-8abe-02a356a00109",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "aaefd112-d256-4c51-ae4a-facd92c3a97b",
+          "title": "Vérifie que le mot de passe est suffisamment robuste",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Processus de création de compte",
+              "fullTitle": "Vérifie que le mot de passe est suffisamment robuste Processus de création de compte",
+              "timedOut": null,
+              "duration": 13092,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Clique sur \"Create an Account\" dans la barre de navigation\ncy.get('.header').contains('Create an Account').click();\n// Vérifie que l'URL contient \"/account/create/\"\ncy.url().should('contain', '/account/create/');\n// Définit différentes valeurs de mot de passe avec leurs niveaux de robustesse attendus\nconst passwords = [{\n  value: '1234567',\n  strength: 'Weak'\n}, {\n  value: 'Ismail11',\n  strength: 'Medium'\n}, {\n  value: 'Ismail111',\n  strength: 'Strong'\n}];\n// Pour chaque paire de mot de passe et de niveau de robustesse attendu\npasswords.forEach(password => {\n  // Efface le champ de mot de passe\n  cy.get(\"#password\").clear();\n  // Saisit la valeur du mot de passe actuel\n  cy.get('#password').type(password.value);\n  // Vérifie que l'étiquette de niveau de robustesse affiche le niveau attendu\n  cy.get('#password-strength-meter-label').contains(password.strength).should('exist');\n  // Si le niveau de robustesse est 'Weak', vérifie également le message d'erreur spécifique\n  if (password.strength === 'Weak') {\n    cy.get('#password-error').contains('Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.').should('exist');\n  }\n  // Attends 1 seconde entre chaque test\n  cy.wait(1000);\n});",
+              "err": {},
+              "uuid": "dd13936c-0fbf-4f6e-9af2-c8e6f7c664a0",
+              "parentUUID": "aaefd112-d256-4c51-ae4a-facd92c3a97b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dd13936c-0fbf-4f6e-9af2-c8e6f7c664a0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13092,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [
+        "76a3169a-0d93-4983-8f36-9d846508a640"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 19446,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
