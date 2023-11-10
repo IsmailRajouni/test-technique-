@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-10T16:04:21.390Z",
+    "end": "2023-11-10T16:04:35.259Z",
+    "duration": 13869,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0bfe5382-f8cc-4ffe-b23d-668fb51cd8fd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\motdepasse.cy.js",
+      "file": "cypress\\e2e\\motdepasse.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bf0b38bd-d4fe-4e02-aafb-b91acacfcaf2",
+          "title": "Vérifie que le mot de passe est suffisamment robuste",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Processus de création de compte",
+              "fullTitle": "Vérifie que le mot de passe est suffisamment robuste Processus de création de compte",
+              "timedOut": null,
+              "duration": 13796,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Clique sur \"Create an Account\" dans la barre de navigation\ncy.get('.header').contains('Create an Account').click();\n// Vérifie que l'URL contient \"/account/create/\"\ncy.url().should('contain', '/account/create/');\n// Définit différentes valeurs de mot de passe avec leurs niveaux de robustesse attendus\nconst passwords = [{\n  value: '1234567',\n  strength: 'Weak'\n}, {\n  value: 'Ismail11',\n  strength: 'Medium'\n}, {\n  value: 'Ismail111',\n  strength: 'Strong'\n}];\n// Pour chaque paire de mot de passe et de niveau de robustesse attendu\npasswords.forEach(password => {\n  // Efface le champ de mot de passe\n  cy.get(\"#password\").clear();\n  // Saisit la valeur du mot de passe actuel\n  cy.get('#password').type(password.value);\n  // Vérifie que l'étiquette de niveau de robustesse affiche le niveau attendu\n  cy.get('#password-strength-meter-label').contains(password.strength).should('exist');\n  // Si le niveau de robustesse est 'Weak', vérifie également le message d'erreur spécifique\n  if (password.strength === 'Weak') {\n    cy.get('#password-error').contains('Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.').should('exist');\n  }\n  // Attends 1 seconde entre chaque test\n  cy.wait(1000);\n});",
+              "err": {},
+              "uuid": "3aa63b46-8992-4735-b00e-83f183ceaa00",
+              "parentUUID": "bf0b38bd-d4fe-4e02-aafb-b91acacfcaf2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3aa63b46-8992-4735-b00e-83f183ceaa00"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13796,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
